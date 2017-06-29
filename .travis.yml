@@ -6,6 +6,10 @@ install:
 
 jobs:
   include:
+    - stage: analysis-is-backward-compatible-with-master
+      go: 1.8
+      script: make analysis-is-backward-compatible-with-master
+
     - stage: analysis
       go: 1.8
       script: make analysis
@@ -21,10 +25,6 @@ jobs:
     - stage: test
       go: 1.6
       script: make test
-
-    - stage: analysis-is-backward-compatible-with-master
-      go: 1.8
-      script: make analysis-is-backward-compatible-with-master
 
   allow_failures:
     - stage: analysis-is-backward-compatible-with-master
